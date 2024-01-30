@@ -51,6 +51,7 @@ const deleteNote = (id) =>
     headers: {
       'Content-Type': 'application/json'
     }
+    
   });
 
 const renderActiveNote = () => {
@@ -63,6 +64,7 @@ const renderActiveNote = () => {
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
+
   } else {
     hide(newNoteBtn);
     noteTitle.removeAttribute('readonly');
@@ -96,8 +98,10 @@ const handleNoteDelete = (e) => {
   }
 
   deleteNote(noteId).then(() => {
+   
     getAndRenderNotes();
     renderActiveNote();
+    
   });
 };
 
